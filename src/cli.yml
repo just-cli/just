@@ -1,0 +1,56 @@
+name:    just
+version: "1.0"
+author:  Randy Schütt <rswhite4@gmail.com>
+about:   Package Manager for Windows
+args:
+    -   verbose:
+            short:    v
+            multiple: true
+            help:     Sets the level of verbosity
+subcommands:
+    -   self:
+            version: "1.0"
+            author:  Randy Schütt <rswhite4@gmail.com>
+            args:
+                -   list:
+                        help:        List installed just components
+                        takes_value: true
+                -   add:
+                        help:        Add a new just component through a Github-URL
+                        #takes_value: true
+                -   remove:
+                        help:        Removes an installed just component by name
+                        takes_value: true
+    -   install:
+            about:   Install a certain Package
+            version: "1.0"
+            author:  Randy Schütt <rswhite4@gmail.com>
+            args:
+                -   package:
+                        help:        The Package you want to install
+                        takes_value: true
+                        required:    true
+                -   version:
+                        help:        The Package-Version you want to install
+                        takes_value: true
+    -   uninstall:
+            about:   Uninstall a certain Package
+            version: "1.0"
+            author:  Randy Schütt <rswhite4@gmail.com>
+            args:
+                -   package:
+                        help:        The Package you want to uninstall
+                        takes_value: true
+                        required:    true
+                -   version:
+                        help:        The Package-Version you want to uninstall
+                        takes_value: true
+    -   update:
+            about:   Update a certain Package
+            version: "1.0"
+            author:  Randy Schütt <rswhite4@gmail.com>
+            args:
+                -   package:
+                        help:        The Package you want to update
+                        takes_value: true
+                        required:    true

@@ -1,0 +1,14 @@
+[package]
+name = "just"
+version = "0.1.0"
+authors = ["Randy Schütt <rswhite4@googlemail.com>"]
+edition = "2018"
+
+[dependencies]
+just-core = {path = '../just-core'}
+log = "0.4"
+simplelog = "0.5"
+
+[dependencies.clap]
+version = "2.32"
+features = ["yaml", "suggestions", "color"]

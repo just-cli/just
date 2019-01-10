@@ -1,0 +1,11 @@
+[package]
+alias = ["7z", "7zip"]
+bin = ["7z.exe"]
+
+[download]
+url = "https://7-zip.org/a/7z{version}-x64.msi"
+
+[versions]
+cmd = "curl https://7-zip.org/download.htm"
+match = "Download 7-Zip ([\\d\\.]+)"
+format = "{major}{minor}"

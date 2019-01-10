@@ -1,0 +1,25 @@
+[package]
+alias = ["git"]
+bin = [
+    "bin/git.exe",
+    "bin/bash.exe",
+    "bin/sh.exe",
+    "usr/bin/ssh.exe",
+    "usr/bin/sshd.exe",
+    "usr/bin/scp.exe",
+    "usr/bin/sftp.exe",
+    "usr/bin/ssh-add.exe",
+    "usr/bin/ssh-agent.exe",
+    "usr/bin/ssh-keygen.exe",
+    "usr/bin/ssh-keyscan.exe",
+]
+
+[download]
+url = "https://github.com/git-for-windows/git/releases/download/v{version}.windows.1/PortableGit-{version}-64-bit.7z.exe#/dl.7z"
+
+[install]
+after = "git config --global credential.helper manager"
+
+[versions]
+cmd = "curl https://github.com/git-for-windows/git/releases"
+match = "download/v(\\d+\\.\\d+\\.\\d+)\\.windows"

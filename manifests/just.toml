@@ -1,0 +1,10 @@
+[package]
+alias = ["just", "wpm"]
+bin = ["bin/just.exe"]
+
+[download]
+url = "https://github.com/Dgame/just/releases/download/v{version}/just-{version}.exe#/dl.7z"
+
+[versions]
+cmd = "curl https://github.com/Dgame/just/releases/"
+match = "download/v(\\d+\\.\\d+\\.\\d+)"
