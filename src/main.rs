@@ -26,6 +26,7 @@ fn main() -> BoxedResult<()> {
     use just_core::kernel::Kernel;
     use just_core::system::cmd_run;
     use log::{debug, error};
+    use std::env::consts::EXE_SUFFIX;
 
     init_log();
 
@@ -42,17 +43,17 @@ fn main() -> BoxedResult<()> {
 
     match matches.subcommand() {
         (sub_cmd, Some(sub_args)) => {
-            let exe_name = format!("{}{}.exe", JUST_PREFIX, sub_cmd);
+            let exe_name = format!("{}{}{}", JUST_PREFIX, sub_cmd, EXE_SUFFIX);
             let exe_path = kernel.path.bin_path.join(&exe_name);
             let mut ext_args: Vec<&str> = Vec::new();
             ext_args.extend(sub_args.values_of("").unwrap_or_default());
 
-            debug!("{:?} mit {:?}", exe_path, ext_args);
+            debug!("{:?} with {:?}", exe_path, ext_args);
 
             if exe_path.exists() {
                 cmd_run(exe_path, &ext_args)
             } else {
-                error!("{} is not a existing command", sub_cmd);
+                error!("{} is not an existing command", sub_cmd);
 
                 Ok(())
             }
